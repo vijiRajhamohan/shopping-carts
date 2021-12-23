@@ -1,0 +1,17 @@
+ion-item{
+  border-radius: 10px;
+  height: 60px;
+  box-shadow: 1px 8px 8px 0px rgba(0 ,0 ,0 , 0.08);
+  --highlight-height: 0px;
+}
+ion-input{
+  font-size: 15px;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  --padding-start: 10px;
+}
+a{
+  font-size: 17px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}

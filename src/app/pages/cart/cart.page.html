@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-title>
+      <ion-icon name="arrow-back-outline" routerLink="/product" ></ion-icon> CART
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+  <div class="ion-padding">
+    <ion-list>
+      <ion-item *ngFor="let p of cart" class="ion-text-wrap">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="9">
+              <b>{{ p.name }}</b><br>
+              {{ p.amount }}<br>
+              {{p.price}} * {{p.amount}} = {{ p.amount * p.price | currency:'INR' }}
+            </ion-col>
+            <ion-col size="3" class="ion-align-self-center">
+              <ion-button
+                color="medium"
+                fill="clear"
+                (click)="increaseCartItem(p)" >
+                <ion-icon name="add-circle" slot="icon-only"></ion-icon>
+              </ion-button>
+              <ion-button
+                color="medium"
+                fill="clear"
+                (click)="decreaseCartItem(p)" >
+                <ion-icon name="remove-circle" slot="icon-only"></ion-icon>
+              </ion-button><br>
+              <ion-button
+                color="medium"
+                fill="clear"
+                (click)="removeCartItem(p)" >
+                <ion-icon name="close-circle" slot="icon-only"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+  </div>
+
+      <ion-footer>
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="4"> Total: </ion-col>
+              {{ getTotal() | currency:'INR' }}
+             <ion-col size="8" class="ion-text-end"><ion-button expand="full" (click)="checkout()" > Place order </ion-button></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+</ion-footer>
+
+
+</ion-content>
